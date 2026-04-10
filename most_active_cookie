@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Run from repo root after: mvn package
+# Resolves the JAR relative to this script so it works when invoked by path.
+cd "$(dirname "$0")" || exit 1
+exec java -jar target/most-active-cookie-1.0-SNAPSHOT.jar "$@"
