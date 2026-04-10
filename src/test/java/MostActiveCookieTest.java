@@ -65,6 +65,18 @@ public class MostActiveCookieTest {
     }
 
     @Test
+    void returnsEmptyListWhenFileIsEmpty() throws IOException {
+        Path tempFile = Files.createTempFile("cookie_log", ".csv");
+
+        List<String> result = MostActiveCookie.findMostActiveCookies(
+                tempFile.toString(),
+                LocalDate.parse("2018-12-09")
+        );
+
+        assertEquals(List.of(), result);
+    }
+
+    @Test
     void returnsEmptyListWhenTargetDateDoesNotExistInFile() throws IOException {
         Path tempFile = Files.createTempFile("cookie_log", ".csv");
         Files.writeString(tempFile,

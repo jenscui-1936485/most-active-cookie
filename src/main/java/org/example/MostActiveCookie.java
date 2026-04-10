@@ -11,6 +11,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Command-line utility that reads a cookie access log (CSV: {@code cookie,timestamp}) and prints
+ * every cookie tied for the highest hit count on a given calendar day.
+ * <p>
+ * The log is assumed to be sorted from newest to oldest by timestamp; processing stops once older
+ * dates are reached, so unsorted files may yield incomplete results.
+ */
 public class MostActiveCookie {
 
     public static void main(String[] args) {
